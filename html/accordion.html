@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/accordion.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="accordion">
+            <div class="accord">
+                <h1>Heading 1
+                    <i class="fa-solid fa-square-minus"></i>
+                </h1>
+                <p class="visible">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum qui esse nihil. Ea fugit aperiam ipsa consequatur! Perferendis nam veritatis aspernatur dolores iure ad omnis enim modi? Possimus, iste alias?Dignissimos quidem pariatur sequi labore sit est omnis magni nihil non sint id corporis mollitia quasi tempore, explicabo, dolorem vero odio quae dolores delectus eos obcaecati, autem animi. Assumenda, magnam.</p>
+            </div>
+            <div class="accord">
+                <h1>Heading 2
+                    <i class="fa-solid fa-square-plus"></i>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe iste, doloribus sed corporis non consequatur voluptatibus reprehenderit totam, natus id assumenda quis quasi, harum doloremque delectus. Exercitationem ab a molestiae.Dicta suscipit id odit cum et laborum hic, illo, placeat corrupti quas quaerat libero voluptatibus eaque saepe eos, velit beatae voluptatum ipsa doloremque debitis possimus? Saepe incidunt quod molestiae dolores.</p>
+            </div>
+            <div class="accord">
+                <h1>Heading 3
+                    <i class="fa-solid fa-square-plus"></i>
+                </h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati quidem ad blanditiis nesciunt et maiores eum debitis exercitationem accusamus dignissimos, quae minus alias, magnam, consequuntur minima pariatur dolorem deserunt soluta.Soluta laudantium quas fuga exercitationem deserunt! Soluta, commodi nesciunt eaque, explicabo culpa omnis ab quam est adipisci inventore quidem nam, suscipit vero. Ipsa nam qui, soluta est minima vero mollitia.</p>
+            </div>
+            <div class="accord">
+                <h1>Heading 4
+                    <i class="fa-solid fa-square-plus"></i>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore error vel iusto expedita. Corporis, esse excepturi temporibus molestias inventore nemo illum, eligendi voluptas repellendus modi iure consequuntur animi, accusamus quibusdam.Aliquam quibusdam impedit optio laboriosam iusto, exercitationem assumenda ipsa aspernatur, doloribus provident architecto ipsum autem quos odit nobis consequuntur molestias tenetur minus ab delectus laborum animi deserunt! Deserunt, hic enim.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        //Traversing
+
+        // parentElement, nextElementSibling, previousElementSibling, children
+
+        // console.log(document.querySelector("#accordion").previousElementSibling)
+
+        //classList: contains, add, remove, toggle
+
+        let button=document.querySelectorAll('.accord h1 i');
+        for(let i=0; i<button.length; i++)
+        {
+            button[i].onclick = function()
+            {
+                let par=button[i].parentElement.nextElementSibling;
+                if(par.classList.contains("visible"))
+                {
+                    par.classList.remove("visible");
+                    button[i].classList.add("fa-square-plus");
+                    button[i].classList.remove("fa-square-minus");
+                }
+                else
+                {
+                    let allpara=document.querySelectorAll("p");
+                    for(let i=0; i<allpara.length; i++)
+                    {
+                        if(allpara[i].classList.contains("visible"))
+                        {
+                            allpara[i].classList.remove("visible");
+                            button[i].classList.add("fa-square-plus");
+                            button[i].classList.remove("fa-square-minus");
+                        }
+                    }
+
+                    // document.querySelector("p.visible").
+                    // classList.remove("visible");
+
+                    par.classList.add("visible");
+                    button[i].classList.add("fa-square-minus");
+                    button[i].classList.remove("fa-square-plus");
+                }
+            }
+        }  
+        
+    </script>
+</body>
+</html>
